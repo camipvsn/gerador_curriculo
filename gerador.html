@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Currículos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gerador de Currículos</h1>
+    <form action="curriculo.php" method="post">
+        <div class="section">
+            <h2>Dados pessoais</h2>
+            <label for="nome">Nome completo:
+                <input type="text" name="nome" id="nome" required>
+            </label>
+            <label for="nasc">Data de Nascimento:
+                <input type="date" name="nasc" id="nasc" required onchange="calcularIdade()">
+            </label>
+            <label for="idade">Idade:
+                <input type="number" name="idade" id="idade" required readonly>
+            </label>
+            <label for="email">Email:
+                <input type="email" name="email" id="email" required>
+            </label>
+            <label for="telefone">Telefone:
+                <input type="tel" name="telefone" id="telefone" pattern="[0-9]{11}" placeholder="(00) 00000-0000" required>
+            </label>
+        </div>
+
+        <div class="section">
+            <h2>Experiências Profissionais</h2>
+            <div id="experiencias">
+                <div class="experiencia">
+                    <label for="cargo">Cargo:
+                        <input type="text" name="cargo[]" id="cargo">
+                    </label>
+                    <label for="empresa">Empresa:
+                        <input type="text" name="empresa[]" id="empresa">
+                    </label>
+                    <label for="periodo">Período:
+                        <input type="number" name="periodo[]" id="periodo">
+                    </label>
+                </div>
+            </div>
+            <button type="button" onclick="addExperiencia()">Adicionar Experiência</button>
+        </div>
+
+        <div class="section">
+            <h2>Formação Acadêmica</h2>
+            <div id="formacoes">
+                <div class="formacao">
+                    <label for="curso">Curso:
+                        <input type="text" name="curso[]" id="curso">
+                    </label>
+                    <label for="instituicao">Instituição:
+                        <input type="text" name="instituicao[]" id="instituicao">
+                    </label>
+                    <label for="conclusao">Ano de Conclusão:
+                        <input type="number" name="conclusao[]" id="conclusao">
+                    </label>
+                </div>
+            </div>
+            <button type="button" onclick="addFormacao()">Adicionar Formação</button>
+        </div>
+
+        <button type="submit">Gerar Currículo</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
